@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 840" width="1600" height="840">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1019"/>
+      <stop offset="55%" stop-color="#0F1724"/>
+      <stop offset="100%" stop-color="#090D15"/>
+    </linearGradient>
+    <linearGradient id="vesselShell" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#273244"/>
+      <stop offset="40%" stop-color="#455670"/>
+      <stop offset="80%" stop-color="#344257"/>
+      <stop offset="100%" stop-color="#1E2734"/>
+    </linearGradient>
+    <linearGradient id="cyanFront" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.65"/>
+      <stop offset="65%" stop-color="#00E5FF" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0.0"/>
+    </linearGradient>
+    <linearGradient id="violetFront" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#9D4EDD" stop-opacity="0.62"/>
+      <stop offset="65%" stop-color="#FFD166" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#9D4EDD" stop-opacity="0.0"/>
+    </linearGradient>
+    <linearGradient id="goldSweep" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD166" stop-opacity="0.65"/>
+      <stop offset="60%" stop-color="#FFD166" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#344257" stop-opacity="0.15"/>
+    </linearGradient>
+    <pattern id="techGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#344257" stroke-width="1" stroke-opacity="0.22"/>
+    </pattern>
+  </defs>
+
+  <!-- Stage Background (#0B1019) -->
+  <rect width="1600" height="840" fill="url(#bgGrad)"/>
+  <rect width="1600" height="840" fill="url(#techGrid)"/>
+
+  <!-- Top Editorial Banner -->
+  <rect x="48" y="34" width="1504" height="92" rx="10" fill="#0F1724" stroke="#344257" stroke-width="1.5"/>
+  <rect x="48" y="34" width="6" height="92" rx="3" fill="#00E5FF"/>
+  <text x="76" y="66" fill="#00E5FF" font-family="monospace" font-size="14" font-weight="700" letter-spacing="1.5">
+    ANATOMY-STYLE MOTION EXPLAINER // INDUSTRIAL GASES &amp; CRYOGENICS // 34S @ 30 FPS (FRAMES 0 TO 1019)
+  </text>
+  <text x="76" y="98" fill="#F8FAFC" font-family="sans-serif" font-size="28" font-weight="700">
+    Cryogenic Feed Purification: Front-End Adsorber Cutaway &amp; Cold Box Protection
+  </text>
+  <text x="1524" y="68" text-anchor="end" fill="#FFD166" font-family="monospace" font-size="13" font-weight="700">
+    BASIS: AIR PRODUCTS CRYOGENIC N2 ARCHITECTURE
+  </text>
+  <text x="1524" y="94" text-anchor="end" fill="#94A3B8" font-family="monospace" font-size="12">
+    CONCEPTUAL SCHEMATIC // EXPLANATORY OVERLAYS ONLY
+  </text>
+
+  <!-- Left: Compressed Feed Air Module -->
+  <rect x="64" y="480" width="190" height="165" rx="10" fill="#182232" stroke="#4A5D7A" stroke-width="2"/>
+  <text x="84" y="514" fill="#F8FAFC" font-family="monospace" font-size="14" font-weight="700">1. FEED AIR HEADER</text>
+  <text x="84" y="538" fill="#94A3B8" font-family="sans-serif" font-size="13">Compressed &amp; Cooled Air</text>
+  <text x="84" y="562" fill="#00E5FF" font-family="monospace" font-size="12" font-weight="600">* N2 + O2 + Ar Carrier</text>
+  <text x="84" y="584" fill="#38BDF8" font-family="monospace" font-size="12">* Saturated H2O Vapor</text>
+  <text x="84" y="606" fill="#9D4EDD" font-family="monospace" font-size="12">* Trace CO2 (~400+ ppm)</text>
+  <text x="84" y="628" fill="#FFD166" font-family="monospace" font-size="11">P_feed &gt; P_ambient</text>
+
+  <!-- Feed Inlet Piping -->
+  <path d="M 254 565 L 450 565 L 450 520" fill="none" stroke="#344257" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 254 565 L 450 565 L 450 520" fill="none" stroke="#00E5FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 450 565 L 700 565 L 700 520" fill="none" stroke="#344257" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- VESSEL A: ONLINE ADSORPTION -->
+  <g transform="translate(365, 210)">
+    <rect x="0" y="0" width="170" height="310" rx="38" fill="url(#vesselShell)" stroke="#00E5FF" stroke-width="2.5"/>
+    <rect x="14" y="24" width="142" height="262" rx="22" fill="#0B1019" stroke="#344257" stroke-width="1.5"/>
+    <!-- Lower Layer: Moisture-Selective -->
+    <rect x="16" y="155" width="138" height="128" fill="url(#cyanFront)"/>
+    <!-- Upper Layer: Molecular Sieve Zeolite -->
+    <rect x="16" y="28" width="138" height="127" fill="url(#violetFront)"/>
+    <!-- Divider & MTZ Line -->
+    <line x1="16" y1="155" x2="154" y2="155" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6,4"/>
+    <line x1="16" y1="78" x2="154" y2="78" stroke="#9D4EDD" stroke-width="2.5" stroke-dasharray="4,3"/>
+
+    <!-- Labels inside Vessel A -->
+    <text x="85" y="-26" text-anchor="middle" fill="#F8FAFC" font-family="monospace" font-size="15" font-weight="700">VESSEL A (ONLINE)</text>
+    <text x="85" y="-8" text-anchor="middle" fill="#00E5FF" font-family="monospace" font-size="12" font-weight="600">CO-CURRENT ADSORPTION</text>
+
+    <rect x="24" y="44" width="122" height="44" rx="5" fill="#0B1019" fill-opacity="0.86" stroke="#9D4EDD" stroke-width="1.2"/>
+    <text x="85" y="63" text-anchor="middle" fill="#9D4EDD" font-family="monospace" font-size="11" font-weight="700">MOLECULAR SIEVE</text>
+    <text x="85" y="80" text-anchor="middle" fill="#E2E8F0" font-family="sans-serif" font-size="10.5">Trace CO2 &amp; CxHy Capture</text>
+
+    <rect x="24" y="182" width="122" height="44" rx="5" fill="#0B1019" fill-opacity="0.86" stroke="#00E5FF" stroke-width="1.2"/>
+    <text x="85" y="201" text-anchor="middle" fill="#00E5FF" font-family="monospace" font-size="11" font-weight="700">DESICCANT LAYER</text>
+    <text x="85" y="218" text-anchor="middle" fill="#E2E8F0" font-family="sans-serif" font-size="10.5">Bulk H2O Vapor Arrest</text>
+  </g>
+
+  <!-- VESSEL B: OFFLINE REGENERATION -->
+  <g transform="translate(615, 210)">
+    <rect x="0" y="0" width="170" height="310" rx="38" fill="url(#vesselShell)" stroke="#FFD166" stroke-width="2.2"/>
+    <rect x="14" y="24" width="142" height="262" rx="22" fill="#0B1019" stroke="#344257" stroke-width="1.5"/>
+    <rect x="16" y="28" width="138" height="254" fill="url(#goldSweep)"/>
+    <line x1="16" y1="185" x2="154" y2="185" stroke="#FFD166" stroke-width="2.5"/>
+
+    <text x="85" y="-26" text-anchor="middle" fill="#F8FAFC" font-family="monospace" font-size="15" font-weight="700">VESSEL B (OFFLINE)</text>
+    <text x="85" y="-8" text-anchor="middle" fill="#FFD166" font-family="monospace" font-size="12" font-weight="600">COUNTER-CURRENT REGEN</text>
+
+    <rect x="24" y="95" width="122" height="54" rx="5" fill="#0B1019" fill-opacity="0.88" stroke="#FFD166" stroke-width="1.2"/>
+    <text x="85" y="115" text-anchor="middle" fill="#FFD166" font-family="monospace" font-size="11" font-weight="700">HEATED N2 SWEEP</text>
+    <text x="85" y="132" text-anchor="middle" fill="#E2E8F0" font-family="sans-serif" font-size="10.5">Top-to-Bottom Desorption</text>
+    <text x="85" y="145" text-anchor="middle" fill="#94A3B8" font-family="monospace" font-size="9.5">Depress -&gt; Heat -&gt; Cool</text>
+  </g>
+
+  <!-- Purified Feed Top Conduit -> Filter -> Analyzer -> Cold Box -->
+  <path d="M 450 210 L 450 158 L 875 158 L 875 255 L 1045 255" fill="none" stroke="#344257" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 450 210 L 450 158 L 875 158 L 875 255 L 1045 255" fill="none" stroke="#00E5FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Regeneration Waste N2 Conduit (Cold Box -> Heater -> Vessel B Top -> Bottom Vent) -->
+  <path d="M 1045 148 L 700 148 L 700 210" fill="none" stroke="#344257" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1045 148 L 700 148 L 700 210" fill="none" stroke="#FFD166" stroke-width="4" stroke-dasharray="10,6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Regeneration Heater Box -->
+  <rect x="755" y="122" width="130" height="50" rx="8" fill="#182232" stroke="#FFD166" stroke-width="2"/>
+  <text x="820" y="145" text-anchor="middle" fill="#FFD166" font-family="monospace" font-size="11" font-weight="700">REGEN HEATER</text>
+  <text x="820" y="162" text-anchor="middle" fill="#CBD5E1" font-family="sans-serif" font-size="10">Dry Waste N2 Thermal Input</text>
+
+  <!-- Particulate After-Filter & Analyzer Interlock -->
+  <rect x="835" y="220" width="82" height="92" rx="8" fill="#273244" stroke="#00E5FF" stroke-width="2"/>
+  <text x="876" y="255" text-anchor="middle" fill="#F8FAFC" font-family="monospace" font-size="11" font-weight="700">AFTER-</text>
+  <text x="876" y="272" text-anchor="middle" fill="#F8FAFC" font-family="monospace" font-size="11" font-weight="700">FILTER</text>
+  <text x="876" y="294" text-anchor="middle" fill="#00E5FF" font-family="sans-serif" font-size="10">Dust Guard</text>
+
+  <rect x="928" y="172" width="104" height="52" rx="6" fill="#181B34" stroke="#9D4EDD" stroke-width="2"/>
+  <text x="980" y="195" text-anchor="middle" fill="#9D4EDD" font-family="monospace" font-size="11" font-weight="700">AT-101 GUARD</text>
+  <text x="980" y="212" text-anchor="middle" fill="#E2E8F0" font-family="monospace" font-size="9.5">Trace H2O/CO2</text>
+
+  <!-- Vessel B Desorption Vent Stack (Visible Losses) -->
+  <path d="M 700 520 L 700 625 L 835 625" fill="none" stroke="#344257" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 700 520 L 700 625 L 835 625" fill="none" stroke="#FFD166" stroke-width="4" stroke-dasharray="8,6"/>
+  <rect x="835" y="595" width="155" height="60" rx="8" fill="#182232" stroke="#FFD166" stroke-width="1.8"/>
+  <text x="912" y="620" text-anchor="middle" fill="#FFD166" font-family="monospace" font-size="11" font-weight="700">PURGE EXHAUST VENT</text>
+  <text x="912" y="640" text-anchor="middle" fill="#94A3B8" font-family="sans-serif" font-size="10.5">Desorbed H2O + CO2 + N2 Loss</text>
+
+  <!-- RIGHT: CRYOGENIC COLD BOX ENCLOSURE -->
+  <rect x="1045" y="145" width="505" height="535" rx="14" fill="#111927" stroke="#4A5D7A" stroke-width="3"/>
+  <rect x="1059" y="159" width="477" height="507" rx="10" fill="none" stroke="#00E5FF" stroke-width="1.2" stroke-dasharray="8,5" stroke-opacity="0.4"/>
+
+  <text x="1080" y="192" fill="#F8FAFC" font-family="monospace" font-size="16" font-weight="700">
+    5. DOWNSTREAM CRYOGENIC COLD BOX
+  </text>
+  <text x="1080" y="214" fill="#00E5FF" font-family="monospace" font-size="12">
+    Protected Low-Temperature Distillation &amp; Heat Exchange
+  </text>
+
+  <!-- Brazed Aluminum Plate-Fin Heat Exchanger (PHX) -->
+  <rect x="1085" y="245" width="175" height="295" rx="8" fill="#273244" stroke="#00E5FF" stroke-width="2"/>
+  <line x1="1110" y1="265" x2="1110" y2="520" stroke="#00E5FF" stroke-width="2" stroke-opacity="0.55"/>
+  <line x1="1135" y1="265" x2="1135" y2="520" stroke="#FFD166" stroke-width="2" stroke-opacity="0.45"/>
+  <line x1="1160" y1="265" x2="1160" y2="520" stroke="#00E5FF" stroke-width="2" stroke-opacity="0.55"/>
+  <line x1="1185" y1="265" x2="1185" y2="520" stroke="#FFD166" stroke-width="2" stroke-opacity="0.45"/>
+  <line x1="1210" y1="265" x2="1210" y2="520" stroke="#00E5FF" stroke-width="2" stroke-opacity="0.55"/>
+  <line x1="1235" y1="265" x2="1235" y2="520" stroke="#FFD166" stroke-width="2" stroke-opacity="0.45"/>
+
+  <rect x="1098" y="340" width="149" height="90" rx="6" fill="#0B1019" fill-opacity="0.9" stroke="#00E5FF" stroke-width="1.2"/>
+  <text x="1172" y="366" text-anchor="middle" fill="#F8FAFC" font-family="monospace" font-size="12" font-weight="700">MAIN HEAT</text>
+  <text x="1172" y="384" text-anchor="middle" fill="#F8FAFC" font-family="monospace" font-size="12" font-weight="700">EXCHANGER (PHX)</text>
+  <text x="1172" y="406" text-anchor="middle" fill="#00E5FF" font-family="sans-serif" font-size="11">Micro-Passages Unblocked</text>
+
+  <!-- Cryogenic Distillation Column -->
+  <rect x="1320" y="235" width="190" height="395" rx="45" fill="#1B2536" stroke="#4A5D7A" stroke-width="2.5"/>
+  <line x1="1340" y1="295" x2="1490" y2="295" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="1340" y1="340" x2="1490" y2="340" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="1340" y1="385" x2="1490" y2="385" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="1340" y1="430" x2="1490" y2="430" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="1340" y1="475" x2="1490" y2="475" stroke="#64748B" stroke-width="1.5"/>
+  <rect x="1332" y="555" width="166" height="58" rx="18" fill="#00E5FF" fill-opacity="0.32"/>
+
+  <rect x="1342" y="355" width="146" height="75" rx="6" fill="#0B1019" fill-opacity="0.9" stroke="#4A5D7A" stroke-width="1.2"/>
+  <text x="1415" y="382" text-anchor="middle" fill="#F8FAFC" font-family="monospace" font-size="12" font-weight="700">CRYOGENIC</text>
+  <text x="1415" y="400" text-anchor="middle" fill="#F8FAFC" font-family="monospace" font-size="12" font-weight="700">COLUMN</text>
+  <text x="1415" y="420" text-anchor="middle" fill="#00E5FF" font-family="sans-serif" font-size="11">Distillation Stage</text>
+
+  <!-- Bottom Legend & Technical Limits Bar -->
+  <rect x="48" y="715" width="1504" height="88" rx="10" fill="#0F1724" stroke="#344257" stroke-width="1.5"/>
+  <circle cx="84" cy="748" r="8" fill="#344257"/>
+  <text x="102" y="753" fill="#E2E8F0" font-family="monospace" font-size="13" font-weight="600">Neutral Material (#344257)</text>
+
+  <circle cx="360" cy="748" r="8" fill="#00E5FF"/>
+  <text x="378" y="753" fill="#00E5FF" font-family="monospace" font-size="13" font-weight="600">Primary Transport / Signal (#00E5FF)</text>
+
+  <circle cx="715" cy="748" r="8" fill="#FFD166"/>
+  <text x="733" y="753" fill="#FFD166" font-family="monospace" font-size="13" font-weight="600">Energy / Actuation (#FFD166)</text>
+
+  <circle cx="1025" cy="748" r="8" fill="#9D4EDD"/>
+  <text x="1043" y="753" fill="#9D4EDD" font-family="monospace" font-size="13" font-weight="600">Control / State (#9D4EDD)</text>
+
+  <text x="76" y="784" fill="#94A3B8" font-family="sans-serif" font-size="13">
+    Technical Guardrail: Adsorbents and cycles vary. No regeneration recipe or total contaminant-removal guarantee. Explanatory color overlays only.
+  </text>
+</svg>
