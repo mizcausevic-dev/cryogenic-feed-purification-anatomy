@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cryogenic Feed Purification // Standalone State Machine &amp; Frame Protocol Visualizer</title>
+  <style>
+    :root {
+      --stage: #0B1019;
+      --panel: #111927;
+      --material: #344257;
+      --cyan: #00E5FF;
+      --gold: #FFD166;
+      --violet: #9D4EDD;
+      --text: #F1F5F9;
+      --muted: #94A3B8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--stage); color: var(--text);
+      font-family: "Space Grotesk", system-ui, sans-serif; padding: 24px;
+    }
+    .container { max-width: 1180px; margin: 0 auto; }
+    .header {
+      border: 1px solid var(--material); background: var(--panel);
+      border-radius: 12px; padding: 20px; margin-bottom: 20px;
+    }
+    .mono { font-family: "JetBrains Mono", monospace; }
+    .scrubber-box {
+      border: 1px solid var(--material); background: var(--panel);
+      border-radius: 12px; padding: 18px; margin-bottom: 20px;
+    }
+    input[type="range"] { width: 100%; accent-color: var(--cyan); cursor: pointer; }
+    .pipeline {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 16px;
+    }
+    .node {
+      border: 1px solid var(--material); background: #0B1019; border-radius: 8px;
+      padding: 12px; transition: all 0.15s;
+    }
+    .node.active {
+      border-color: var(--cyan); box-shadow: 0 0 18px rgba(0, 229, 255, 0.2);
+    }
+    .matrix {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;
+    }
+    .box {
+      border: 1px solid var(--material); background: var(--panel); border-radius: 10px; padding: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="mono" style="font-size: 12px; color: var(--cyan); font-weight: 700;">
+        STANDALONE ZERO-DEPENDENCY PROTOCOL VISUALIZER // 1,020 FRAMES @ 30 FPS
+      </div>
+      <h1 style="margin: 6px 0 8px; font-size: 24px;">
+        Cryogenic Feed Purification: State Machine &amp; Causal Pathway Inspector
+      </h1>
+      <p style="margin: 0; font-size: 13.5px; color: var(--muted);">
+        Interactive decision-tree and state-machine verification for frames 0–1019. Drag the frame slider to inspect how camera state, valve sequencing, and explanatory overlays transition across the 34-second cycle.
+      </p>
+    </div>
+
+    <div class="scrubber-box">
+      <div class="mono" style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px;">
+        <span>FRAME INDEX: <strong id="fVal" style="color: var(--cyan);">0</strong> / 1019</span>
+        <span>TIMECODE: <strong id="tVal" style="color: var(--gold);">0.00s</strong> / 34.00s (30 FPS)</span>
+      </div>
+      <input id="fSlider" type="range" min="0" max="1019" value="0" aria-label="Frame index slider" />
+
+      <div class="pipeline" id="sceneNodes">
+        <div class="node active" data-s="1">
+          <div class="mono" style="font-size: 11px; color: var(--cyan);">01 // F0–149</div>
+          <strong style="font-size: 13px;">Upstream Reveal</strong>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">0–5s: Assembly &amp; 3/4 push</div>
+        </div>
+        <div class="node" data-s="2">
+          <div class="mono" style="font-size: 11px; color: var(--cyan);">02 // F150–299</div>
+          <strong style="font-size: 13px;">H2O &amp; CO2 Arrest</strong>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">5–10s: Layered bed cutaway</div>
+        </div>
+        <div class="node" data-s="3">
+          <div class="mono" style="font-size: 11px; color: var(--cyan);">03 // F300–509</div>
+          <strong style="font-size: 13px;">Purified Pathway</strong>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">10–17s: Filter &amp; interlock</div>
+        </div>
+        <div class="node" data-s="4">
+          <div class="mono" style="font-size: 11px; color: var(--cyan);">04 // F510–749</div>
+          <strong style="font-size: 13px;">Regen State</strong>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">17–25s: Heated N2 sweep</div>
+        </div>
+        <div class="node" data-s="5">
+          <div class="mono" style="font-size: 11px; color: var(--cyan);">05 // F750–1019</div>
+          <strong style="font-size: 13px;">Cold Box Guard</strong>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">25–34s: System overview</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="matrix">
+      <div class="box">
+        <div class="mono" style="font-size: 11px; color: var(--cyan); font-weight: 700;">PRIMARY TRANSPORT (#00E5FF)</div>
+        <p id="pDesc" style="font-size: 13px; margin-top: 8px;">Compressed feed air enters inlet manifold -> Vessel A online adsorption.</p>
+      </div>
+      <div class="box">
+        <div class="mono" style="font-size: 11px; color: var(--gold); font-weight: 700;">ENERGY / ACTUATION (#FFD166)</div>
+        <p id="eDesc" style="font-size: 13px; margin-top: 8px;">Upstream compression &amp; aftercooling completed; V-1A/V-2A actuated open.</p>
+      </div>
+      <div class="box">
+        <div class="mono" style="font-size: 11px; color: var(--violet); font-weight: 700;">CONTROL / STATE (#9D4EDD)</div>
+        <p id="cDesc" style="font-size: 13px; margin-top: 8px;">Sequence Controller Step 1: Vessel A Online / Vessel B isolated for regeneration.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const slider = document.getElementById('fSlider');
+      const fVal = document.getElementById('fVal');
+      const tVal = document.getElementById('tVal');
+      const pDesc = document.getElementById('pDesc');
+      const eDesc = document.getElementById('eDesc');
+      const cDesc = document.getElementById('cDesc');
+      const nodes = document.querySelectorAll('.node');
+
+      function update(f) {
+        fVal.textContent = f;
+        tVal.textContent = (f / 30).toFixed(2) + 's';
+        let s = 1;
+        if (f >= 750) s = 5;
+        else if (f >= 510) s = 4;
+        else if (f >= 300) s = 3;
+        else if (f >= 150) s = 2;
+
+        nodes.forEach(function (n) {
+          n.classList.toggle('active', Number(n.getAttribute('data-s')) === s);
+        });
+
+        if (s === 1) {
+          pDesc.textContent = 'Compressed feed air header -> Inlet switching manifold -> Vessel A active bed.';
+          eDesc.textContent = 'Feed enters under elevated pressure after upstream compression and aftercooler heat rejection.';
+          cDesc.textContent = 'Cycle Step 1: Vessel A Online Adsorption / Vessel B Standby-to-Regeneration.';
+        } else if (s === 2) {
+          pDesc.textContent = 'Bottom moisture-selective desiccant arrests bulk H2O vapor; upper zeolite sieve captures trace CO2.';
+          eDesc.textContent = 'Local exothermic heat of adsorption released along the advancing Mass-Transfer Zone (MTZ).';
+          cDesc.textContent = 'MTZ Guard: Prevents moisture from displacing CO2 in the upper molecular sieve layer.';
+        } else if (s === 3) {
+          pDesc.textContent = 'Purified N2/O2 carrier stream exits Vessel A -> Particulate After-Filter -> Cold Box header.';
+          eDesc.textContent = 'Hydraulic pressure drop (Delta-P) across packed bed and downstream dust filter elements.';
+          cDesc.textContent = 'AT-101 Trace Analyzer Interlock verifies H2O/CO2 remain below cryogenic freeze thresholds.';
+        } else if (s === 4) {
+          pDesc.textContent = 'Dry low-pressure waste N2 from cold box sweeps counter-currently (top-to-bottom) through Vessel B.';
+          eDesc.textContent = 'Regeneration heater warms waste N2 to desorb CO2 and H2O out the bottom exhaust vent.';
+          cDesc.textContent = 'Regeneration Sequencer: Depressurize -> Thermal Desorption -> Cooling Sweep -> Repressurize.';
+        } else {
+          pDesc.textContent = 'Purified feed cools in Brazed Aluminum Main Heat Exchanger (PHX) -> Cryogenic Distillation Column.';
+          eDesc.textContent = 'Visible system losses retained: bed Delta-P, heater thermal duty, blowdown, and purge exhaust.';
+          cDesc.textContent = 'Closed-Loop Plant Balance: Protects micro-channel heat exchangers from solid H2O/CO2 plugging.';
+        }
+      }
+
+      slider.addEventListener('input', function (e) {
+        update(Number(e.target.value));
+      });
+    })();
+  </script>
+</body>
+</html>
